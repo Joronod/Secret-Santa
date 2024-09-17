@@ -1,12 +1,22 @@
-import { useState } from 'react'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css'
+
+import Header from '../components/Header';
+import Home from '../components/Home';
+import NotFound from "../components/NotFound";
 
 function SecretSantaApp() {
 
   return (
-    <>
-      <h1>Secret Santa App</h1>
-    </>
+    <BrowserRouter>
+      <div className="app">
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   )
 }
 
