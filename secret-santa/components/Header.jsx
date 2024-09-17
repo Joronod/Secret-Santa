@@ -1,9 +1,12 @@
 import styles from "../styles/mystyles.module.css"
+import { Link } from "react-router-dom"
 
 const Header = () =>{
 
     return (
-        <h1>Secret Santa app</h1>
+        <header className={styles.header}>
+            <h1><Link to="/">Secret Santa App </Link></h1>
+        </header>
     )
 }
 
