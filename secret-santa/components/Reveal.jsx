@@ -1,32 +1,36 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import styles from "../styles/mystyles.module.css";
 
 const Reveal = () => {
     const location = useLocation();
     const navigate = useNavigate();
-    const { selectedSanta, remainingSantas } = location.state || {};
+    const { assignments, santas } = location.state || {};
+    const [currentIndex, setCurrentIndex] = useState(0);
 
     useEffect(() => {
-        if (!selectedSanta || remainingSantas.length === 0) {
+        if (!assignments || santas.length === 0) {
             navigate("/turn_initialiser");
         }
-    }, [selectedSanta, remainingSantas, navigate]);
+    }, [assignments, santas, navigate]);
 
     const handleReveal = () => {
-        const randomRecipientIndex = Math.floor(Math.random() * remainingSantas.length);
-        const recipient = remainingSantas[randomRecipientIndex];
+        const currentSanta = santas[currentIndex];
+        const recipient = assignments[currentSanta];
 
-        const updatedSantas = remainingSantas.filter((_, index) => index !== randomRecipientIndex);
+        alert(`${currentSanta} will buy a gift for ${recipient}!`);
 
-        alert(`${selectedSanta} will buy a gift for ${recipient}!`);
-
-        navigate("/turn_initialiser", { state: { santas: updatedSantas } });
+        if (currentIndex + 1 < santas.length) {
+            setCurrentIndex(currentIndex + 1);
+        } else {
+            alert("All Santas have been revealed!");
+            navigate("/");
+        }
     };
 
     return (
         <section className={styles.reveal}>
-            <h2>It's {selectedSanta}'s turn!</h2>
+            <h2>It's {santas[currentIndex]}'s turn!</h2>
             <button onClick={handleReveal}>Reveal who you are buying a gift for</button>
         </section>
     );
