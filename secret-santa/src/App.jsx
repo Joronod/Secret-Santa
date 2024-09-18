@@ -3,6 +3,8 @@ import './App.css'
 
 import Header from '../components/Header';
 import Home from '../components/Home';
+import TurnIntialiser from '../components/TurnInitialiser'
+import Reveal from "../components/Reveal";
 import NotFound from "../components/NotFound";
 
 function SecretSantaApp() {
@@ -13,6 +15,8 @@ function SecretSantaApp() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/turn_initialiser" element={<TurnIntialiser />} />
+          <Route path="/reveal" element={<Reveal />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>

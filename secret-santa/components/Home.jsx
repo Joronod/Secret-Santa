@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import styles from "../styles/mystyles.module.css"
 import { useState } from "react"
 
@@ -56,6 +57,13 @@ const Home = () => {
                             <li key={index}>{santa}</li>
                         ))}
                     </ul>
+                </div>
+            )}
+            {santas.length > 1 && (
+                <div>
+                    <h2>
+                        <Link to="/turn_initialiser" state={{ santas }}>Start</Link>
+                    </h2>
                 </div>
             )}
         </section> 
