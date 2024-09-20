@@ -15,6 +15,13 @@ The Secret Santa App is a simple tool to organize and run a Secret Santa gift ex
 * Start the Exchange: Once at least two participants are added, a "Start" button appears. Click it to proceed.
 * Reveal Assignments: Participants will take turns revealing who they are buying a gift for by clicking the "Reveal" button.
 * Complete the Event: Once all assignments are revealed, the process is finished, and you can start again!
+
+## Software Used
+* React: For building the user interface and managing app state.
+* React Router: To handle navigation between different pages (home, turn initializer, and reveal screens).
+* Vite: For fast and efficient development and bundling of the project.
+* CSS Modules: For component-scoped styling, ensuring modular and maintainable CSS.
+
 ## How to Access the Repo
 You can access the source code and contribute to the project via the GitHub repository:
 
